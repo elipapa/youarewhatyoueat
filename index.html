@@ -1,37 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MFP dashboard</title>
+    <title>You are what you eat - powered by um.ai</title>
 
     <meta charset="UTF-8">
+  <meta name="description" content="a dashboard to show the insight given by granular food data">
+  <meta name="author" content="Eliseo Papa">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/colorbrewer.min.css" rel="stylesheet">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+
+    <link href="css/colorbrewer.css" rel="stylesheet">
     <!-- pages theme -->
-    <link href="css/simple.min.css" rel="stylesheet"> 
+    <!-- <link href="css/simple.min.css" rel="stylesheet">  -->
     <link rel="stylesheet" type="text/css" href="css/dc.css"/>
 
-    <style type="text/css">
+    <link rel="icon" type="image/png" href="umai-favicon.png">
+    <style type="text/css" media="screen">
+        #logo {
+            float: right;
+            margin-bottom: 40px;
+        }
+
+        .example-header {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
     </style>
 </head>
 
 <body>
 
+
 <div class="container">
+<div class="row">
+    <a href="https://um.ai"><img src="umai-logo.png" width="268" height="80" id="logo"></a>
+</div>
+    <div class="row">
+<h1>You are what you eat</h1>
 
-<h2>MFP data dashboard</h2>
+<p>At <a href="http://um.ai">um.ai</a> we are creating an ontology of food. We use it to <strong>understand</strong> what you have eaten and give you back informations about it.
 
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
+<h6 class="example-header">Example: MyFitnessPal food diaries</h6>
+
+<p>The coordinated visualizations below shows nearly 200k single food items as recorded and publicly shared by 200 random users of <a href="http://myfitnesspal.com">MyFitnessPal</a> over the course of 6 months. The table beneath shows the FORTY most recent food items which match the current filters; these are some <i>details on demand</i>, anecdotal evidence that shows you the shape of the data visualized.
+
+<hr>
+
+<p>Some questions to consider: How does time-of-day correlate with <a href="javascript:filter([null, [100, 150], null, null])">arrival delay</a>? Are <a href="javascript:filter([null, null, [1700, 2000], null])">longer</a> or <a href="javascript:filter([null, null, [0, 300], null])">shorter</a> flights more likely to arrive early? What happened on <a href="javascript:filter([null, [80, 150], null, [new Date(2001, 0, 12), new Date(2001, 0, 13)]])">January 12</a>? How do flight patterns differ between <a href="javascript:filter([null, null, null, [new Date(2001, 0, 27), new Date(2001, 0, 29)]])">weekends</a> and <a href="javascript:filter([null, null, null, [new Date(2001, 0, 29), new Date(2001, 1, 3)]])">weekdays</a>, or <a href="javascript:filter([[4, 7], null, null, null])">mornings</a> and <a href="javascript:filter([[21, 24], null, null, null])">nights</a>? 
+</div>
+<hr>
+
+<div class="row" id="charts">
+  <div id="hour-chart" class="chart">
+    <div class="title">Time of Day</div>
+  </div>
+  <div id="delay-chart" class="chart">
+    <div class="title">Arrival Delay (min.)</div>
+  </div>
+  <div id="distance-chart" class="chart">
+    <div class="title">Distance (mi.)</div>
+  </div>
+  <div id="date-chart" class="chart">
+    <div class="title">Date</div>
+  </div>
+
+<!-- dc.js charts -->
+<div id="time-chart"></div>
+<div id="category-chart"></div>
+<div id="meal-chart"></div>
+
 
 
 </div>
+
+<aside id="totals"><span id="active">-</span> of <span id="total">-</span> flights selected.</aside>
+
+<div class="row" id="lists">
+    <!-- anchor div for data table -->
+    <div id='data-table'>
+        <!-- create a custom header -->
+        <div class='header'>
+            <span>Date</span>
+            <span>Meal</span>
+            <span>Food item</span>
+        </div>
+        <!-- data rows will filled in here -->
+    </div>
+</div>
+
+</div>
+
+<footer>
+  <span style="float:right;">
+    Built with <a href="http://mbostock.github.com/d3/">D3</a> and <a href="https://github.com/square/crossfilter">Crossfilter</a> using <a href="http://https://dc-js.github.io/dc.js/" title="dc.js">dc.js</a>.
+  </span>
+  Copyright 2015 <a href="http://eliseopapa.org">Eliseo Papa</a>
+</footer>
 
 
 
