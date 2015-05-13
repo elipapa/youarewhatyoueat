@@ -39,6 +39,8 @@
   font-weight: 600;
 }
 
+        .dc-table-label { font-weight: bold }
+
     </style>
 </head>
 
@@ -60,28 +62,38 @@
 
 <hr>
 
-<a class="button" href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a>
 
-<p>Some questions to consider: How does time-of-day correlate with <a href="javascript:filter([null, [100, 150], null, null])">arrival delay</a>? Are <a href="javascript:filter([null, null, [1700, 2000], null])">longer</a> or <a href="javascript:filter([null, null, [0, 300], null])">shorter</a> flights more likely to arrive early? What happened on <a href="javascript:filter([null, [80, 150], null, [new Date(2001, 0, 12), new Date(2001, 0, 13)]])">January 12</a>? How do meal patterns change during <a href="javascript:timechart.filter([new Date(2014, 12, 23), new Date(2014, 12, 29)]); dc.redrawAll();">christmas</a> ?
+<p>Some questions to consider: Which meal are <a href="javascript:categoryChart.filter('egg'); dc.redrawAll();">eggs</a> most eaten at?
 
 </div>
 
 <hr>
 
-
+<div class="row" id="charts">
+<a class="button" href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a>
 <!-- dc.js charts -->
 <div id="time-chart"><div class="title">Calories</div></div>
 <div id="category-chart"><div class="title">Category</div></div>
 <div id="meal-chart"><div class="title">Meal type</div></div>
+</div>
 
 
-
-<hr>
 
 <div class="row">
     <!-- anchor div for data table -->
     <table id='dc-data-table'>
-        <!-- data rows will filled in here -->
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Brand</th>
+      <th>Item</th>
+      <th>Category</th>
+      <th>Calories</th>
+    </tr>
+  </thead>
+  <tbody>
+     
+  </tbody> 
     </table>
 </div>
 

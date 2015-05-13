@@ -36,9 +36,9 @@ d3.csv('fooddata_plot.json', function (data) {
     });
 
 
-	mealChart.width(400)
-	        .height(400)
-	        .radius(180)
+	mealChart.width(200)
+	        .height(200)
+	        .radius(90)
 	        .innerRadius(40)
 	        .dimension(mealDim)
 	        .group(mealGroup);
@@ -56,7 +56,7 @@ d3.csv('fooddata_plot.json', function (data) {
 	        .xAxis().ticks(4);
 
 	timechart
-	    .width(600)
+	    .width(750)
 	    .height(160)
 	    .margins({top: 10, right: 50, bottom: 30, left: 50})
 	    .dimension(dateDim)
@@ -70,10 +70,9 @@ d3.csv('fooddata_plot.json', function (data) {
 	mealList
         .dimension(dateDim)
         .group(function (d) {
-            var format = d3.format('02d');
-            return d.dd.getFullYear() + '/' + format((d.dd.getMonth() + 1));
+            return d.meal;
         })
-        .size(10) // (optional) max number of records to be shown, :default = 25
+        .size(25) // (optional) max number of records to be shown, :default = 25
         // There are several ways to specify the columns; see the data-table documentation.
         // This code demonstrates generating the column header automatically based on the columns.
         .columns([
@@ -81,16 +80,16 @@ d3.csv('fooddata_plot.json', function (data) {
             return d.date;
         },
         function(d) {
-            return d.meal;
+            return d.brand;
         },
         function(d) {
             return d.fooditem;
         },
         function(d) {
-            return d.calories;
+            return d.category;
         },
         function(d) {
-            return d.category;
+            return d.calories;
         }
     	])
     	.renderlet(function (table) {
