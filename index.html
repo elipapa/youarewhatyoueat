@@ -1,118 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>You are what you eat - powered by um.ai</title>
-
     <meta charset="UTF-8">
-  <meta name="description" content="a dashboard to show the insight given by granular food data">
-  <meta name="author" content="Eliseo Papa">
-
-  <!-- Mobile Specific Metas
+    <meta name="description" content="a dashboard to show the insight given by granular food data">
+    <meta name="author" content="Eliseo Papa">
+    <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-
-  <!-- CSS
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
-
     <link href="css/colorbrewer.css" rel="stylesheet">
     <!-- pages theme -->
     <!-- <link href="css/simple.min.css" rel="stylesheet">  -->
-    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
-
+    <link rel="stylesheet" type="text/css" href="css/dc.css" />
     <link rel="icon" type="image/png" href="umai-favicon.png">
     <style type="text/css" media="screen">
-        #logo {
-            float: right;
-            margin-bottom: 40px;
-        }
-
-        .example-header {
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-        .dc-table-label { font-weight: bold }
-
+    #logo {
+        float: right;
+        margin-bottom: 40px;
+    }
+    
+    .example-header {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    
+    .dc-table-label {
+        font-weight: bold
+    }
     </style>
 </head>
 
 <body>
-
-
-<div class="container">
-<div class="row">
-    <a href="https://um.ai"><img src="umai-logo.png" width="268" height="80" id="logo"></a>
-</div>
-    <div class="row">
-<h1>You are what you eat</h1>
-
-<p>At <a href="http://um.ai">um.ai</a> we are creating an ontology of food. We use it to <strong>understand</strong> what you have eaten and give you back informations about it.
-
-<h6 class="example-header">Example: MyFitnessPal food diaries</h6>
-
-<p>The coordinated visualizations below shows nearly 200k single food items as recorded and publicly shared by 200 random users of <a href="http://myfitnesspal.com">MyFitnessPal</a> over the course of 6 months. The table beneath shows the FORTY most recent food items which match the current filters; these are some <i>details on demand</i>, anecdotal evidence that shows you the shape of the data visualized.
-
-<hr>
-
-
-<p>Some questions to consider: Which meal are <a href="javascript:categoryChart.filter('egg'); dc.redrawAll();">eggs</a> most eaten at?
-
-</div>
-
-<hr>
-
-<div class="row" id="charts">
-<a class="button" href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a>
-<!-- dc.js charts -->
-<div id="time-chart"><div class="title">Calories</div></div>
-<div id="category-chart"><div class="title">Category</div></div>
-<div id="meal-chart"><div class="title">Meal type</div></div>
-</div>
-
-
-
-<div class="row">
-    <!-- anchor div for data table -->
-    <table id='dc-data-table'>
-    <thead>
-    <tr>
-      <th>Date</th>
-      <th>Brand</th>
-      <th>Item</th>
-      <th>Category</th>
-      <th>Calories</th>
-    </tr>
-  </thead>
-  <tbody>
-     
-  </tbody> 
-    </table>
-</div>
-
-</div>
-
-<footer>
-  <span style="float:right;">
+    <div class="container">
+        <div class="row">
+            <a href="https://um.ai"><img src="umai-logo.png" width="268" height="80" id="logo"></a>
+        </div>
+        <div class="row">
+            <h1>You are what you eat</h1>
+            <p>At <a href="http://um.ai">um.ai</a> we are creating an ontology of food. We use it to <strong>understand</strong> what you have eaten and give you back informations about it.
+                <h6 class="example-header">Example: MyFitnessPal food diaries</h6>
+                <p>The coordinated visualizations below shows nearly 200k single food items as recorded and publicly shared by 200 random users of <a href="http://myfitnesspal.com">MyFitnessPal</a> over the course of 6 months. The table beneath shows the twentyfive most recent food items which match the current filters, grouped by meal type. We used <a href="http://um.ai">um.ai</a>'s ontology to assign all these food items to categories. Here we show the ten most common ones.
+                    <p>Reconducing all this messy data obtained from users to common categories can help highlight important trends. Which meal are <a href="javascript:categoryChart.filter('egg'); dc.redrawAll();">eggs</a> most eaten at? That was probably an easy guess.
+                        <br> Well, looks like breakfast is the time of day when <a href="javascript:categoryChart.filter('sweets'); dc.redrawAll();">most sweets</a> are eaten too.
+                        <p>This is one example of what we use to give the users of our mobile app insight into what they have eaten. Because we all know it does not matter how many calories you eat, it's what calories you eat that matter.
+        </div>
+        <hr>
+        <div class="row" id="charts">
+            <a class="button" href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a>
+            <!-- dc.js charts -->
+            <div id="time-chart">
+                <div class="title">Calories</div>
+            </div>
+            <div id="category-chart">
+                <div class="title">Category</div>
+            </div>
+            <div id="meal-chart">
+                <div class="title">Meal type</div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- anchor div for data table -->
+            <table id='dc-data-table'>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Brand</th>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <span style="float:right;">
     Built with <a href="http://mbostock.github.com/d3/">D3</a> and <a href="https://github.com/square/crossfilter">Crossfilter</a> using <a href="http://https://dc-js.github.io/dc.js/" title="dc.js">dc.js</a>.
-  </span>
-  Copyright 2015 <a href="http://eliseopapa.org">Eliseo Papa</a>
-</footer>
-
-
-
-<script type="text/javascript" src="js/d3.min.js"></script>
-<script type="text/javascript" src="js/crossfilter.min.js"></script>
-<script type="text/javascript" src="js/dc.min.js"></script>
-<script type="text/javascript" src="food.js"></script>
-
-
+  </span> Copyright 2015 <a href="http://eliseopapa.org">Eliseo Papa</a>
+    </footer>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="js/dc.min.js"></script>
+    <script type="text/javascript" src="food.js"></script>
 </body>
+
 </html>
