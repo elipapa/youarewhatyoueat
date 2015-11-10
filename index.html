@@ -27,12 +27,12 @@
         float: right;
         margin-bottom: 40px;
     }
-    
+
     .example-header {
         text-transform: uppercase;
         font-weight: 600;
     }
-    
+
     .dc-table-label {
         font-weight: bold
     }
@@ -49,16 +49,20 @@
             <p>At <a href="http://um.ai">um.ai</a> we are creating an ontology of food. We use it to <strong>understand</strong> what you have eaten and give you back informations about it.
                 <h6 class="example-header">Example: MyFitnessPal food diaries</h6>
                 <p>The coordinated visualizations below shows nearly 200k single food items as recorded and publicly shared by 200 random users of <a href="http://myfitnesspal.com">MyFitnessPal</a> over the course of 6 months. The table beneath shows the twentyfive most recent food items which match the current filters, grouped by meal type. We used <a href="http://um.ai">um.ai</a>'s ontology to assign all these food items to categories. Here we show the ten most common ones.
-                    <p>Reconducing all this messy data obtained from users to common categories can help highlight important trends. Which meal are <a href="javascript:categoryChart.filter('egg'); dc.redrawAll();">eggs</a> most eaten at? That was probably an easy guess.
-                        <br> Well, looks like breakfast is the time of day when <a href="javascript:categoryChart.filter('sweets'); dc.redrawAll();">most sweets</a> are eaten too.
-                        <p>This is one example of what we use to give the users of our mobile app insight into what they have eaten. Because we all know it does not matter how many calories you eat, it's what calories you eat that matter.
+                    <p>Reconducing all this messy data obtained from users to common categories can help highlight important trends.
+                    For instance, which meal are <a href="javascript:categoryChart.filter('egg'); dc.redrawAll();">eggs</a> most eaten at? Ok, that was probably an easy guess. However, looks like breakfast is the time of day when <a href="javascript:categoryChart.filter('sweets'); dc.redrawAll();">most sweets</a> are eaten too. A bit more surprising.<p>
+
+Inconsistencies in the data also become apparent when you plot: do we really believe that Christmas is one of the days where the least number of calories was logged?
+
+
+                        <p>This is one example of what we use to give the users of our mobile app insight into what they have eaten. Because we all know it does not matter how many calories you eat, <strong>it's which calories you eat</strong> that matter.
         </div>
         <hr>
         <div class="row" id="charts">
             <a class="button" href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a>
             <!-- dc.js charts -->
             <div id="time-chart">
-                <div class="title">Calories</div>
+                <div class="title">Calories logged</div>
             </div>
             <div id="category-chart">
                 <div class="title">Category</div>
@@ -86,7 +90,7 @@
     </div>
     <footer>
         <span style="float:right;">
-    Built with <a href="http://mbostock.github.com/d3/">D3</a> and <a href="https://github.com/square/crossfilter">Crossfilter</a> using <a href="http://https://dc-js.github.io/dc.js/" title="dc.js">dc.js</a>.
+    Built with <a href="http://mbostock.github.com/d3/">D3</a> and <a href="https://github.com/square/crossfilter">Crossfilter</a> using <a href="https://dc-js.github.io/dc.js/" title="dc.js">dc.js</a>.
   </span> Copyright 2015 <a href="http://eliseopapa.org">Eliseo Papa</a>
     </footer>
     <script type="text/javascript" src="js/d3.min.js"></script>
